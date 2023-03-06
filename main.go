@@ -55,5 +55,9 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	mux := http.NewServeMux()
 
+	mux.HandleFunc("/users", GetUser)
+
+	http.ListenAndServe(":8080", mux)
 }
